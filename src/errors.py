@@ -1,0 +1,2 @@
+class InvalidStatusOptionError(Exception):
+    pass
