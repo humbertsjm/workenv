@@ -1,6 +1,8 @@
 from typing import Self
+
 from src.data.activity import Activity
-from src.enums import ActivityStatus,ActivityType
+from src.enums import ActivityStatus, ActivityType
+
 
 class ActivityFactory:
     @classmethod
