@@ -1,2 +1,6 @@
-class InvalidStatusOptionError(Exception):
+class InvalidActivityStatusOptionError(Exception):
+    pass
+
+
+class InvalidActivityTypeOptionError(Exception):
     pass
