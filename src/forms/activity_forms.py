@@ -13,9 +13,11 @@ class ActivityForm():
 
     @classmethod
     def ask_status_input(cls: Self) -> int:
-        status_input: str = input("""
-            Enter status:
-        """)
+        input_message = "Enter status:"
+        for item in ActivityStatus:
+            input_message += f'\n {item.value}: {item.name.lower().capitalize()}'
+        input_message += '\n> '
+        status_input: str = input(input_message)
         status_input = status_input.strip()
         if not status_input.isnumeric():
             raise ValueError("Enter option is not a number")
