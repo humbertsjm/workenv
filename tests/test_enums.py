@@ -25,24 +25,6 @@ class TestActivityStatus():
     def test_default_option_function(self) -> None:
         assert ActivityStatus.get_default_option() == ActivityStatus.OPEN
 
-    def test_random_option(self) -> None:
-        assert isinstance(ActivityStatus.get_random_option(), ActivityStatus)
-        enum_set: set[int] = set([s.value for s in ActivityStatus])
-        random_options: set[int] = set([
-            ActivityStatus.get_random_option().value
-            for n in range(self.RANDOM_ITERATIONS)
-        ])
-        assert random_options.issubset(enum_set)
-        # Unlikely to be 1
-        assert len(random_options) > 1 
-
-    def test_non_default_random_option(self) -> None:
-        random_options: set[int] = set([
-            ActivityStatus.get_non_default_random_option().value
-            for n in range(self.RANDOM_ITERATIONS)
-        ])
-        # Unlikely to have random option after RANDOM_ITERATIONS iterations
-        assert ActivityStatus.get_default_option().value not in random_options
 
 class TestActivityType():
     EXPECTED_ITEMS: dict[str, int] = {

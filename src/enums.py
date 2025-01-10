@@ -13,15 +13,6 @@ class ActivityStatus(Enum):
     def get_default_option(cls: Self) -> Self:
         return cls.OPEN
 
-    @classmethod
-    def get_random_option(cls: Self) -> Self:
-        return random.choice([s for s in cls])
-
-    @classmethod
-    def get_non_default_random_option(cls: Self) -> Self:
-        choices = [s for s in cls]
-        choices.remove(cls.get_default_option())
-        return random.choice(choices)
 
 class ActivityType(Enum):
     COMMON= 0

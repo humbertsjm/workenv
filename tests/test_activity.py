@@ -4,7 +4,7 @@ from src.factories.activity_factory import ActivityFactory
 from src.data.activity import Activity, ActivityDataExamples
 from src.forms.activity_forms import ActivityForm
 from src.enums import ActivityStatus, ActivityType
-from tests.utils import get_random_string_from_length
+from tests.utils import get_random_string_from_length, get_random_activity_status_option
 import random
 from src.errors import InvalidStatusOptionError
 
@@ -62,7 +62,7 @@ class TestActivitiyForms():
             assert asked_input == blank_str
 
     def test_ask_status(self, monkeypatch: MonkeyPatch) -> None:
-        random_status: int = ActivityStatus.get_random_option().value
+        random_status: int = get_random_activity_status_option().value
         monkeypatch.setattr(
             'builtins.input', 
             lambda _: str(random_status)
